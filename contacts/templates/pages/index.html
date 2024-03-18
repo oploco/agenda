@@ -1,0 +1,16 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'styles/style.css' %}">
+
+<h2><center> Contactos </center></h2>
+{% if latest_contact_list %}
+<center>
+    <ul>
+    {% for contact in latest_contact_list %}
+        <li><a href="{% url 'contacts:detail' contacto.id %}">{{ contact.nombre }}</a></li>
+    {% endfor %}
+    </ul>
+</center>
+{% else %}
+    <p>No contacts are available.</p>
+{% endif %}
